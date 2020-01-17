@@ -38,3 +38,7 @@ Now you have an "Application (client) ID" value, update the app.config:
  <add key="clientId" value="" /> 
 
 with your value.
+
+NOTE: If you copy the token to use on "https://custom-api.cognitive.microsofttranslator.com/swagger/" make sure you add "Bearer " before the token (i.e., Bearer <token value>), like so:
+
+authorization:  Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI***********REoc7_NP4lLZ3xohthp5fyg
