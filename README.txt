@@ -23,22 +23,15 @@ To use this solution to generate access token, you need to register an applicati
 3) Click "Authentication" blade and configure "Public client/native (mobile & desktop)" by clicking on the drop down
 arrow. Your configuration should look like this:
 
-Type							Redirect URI
------------------------------------------------------   ------------------------------------
-Public client/native (mobile & desktop)                 urn:ietf:wg:oauth:2.0:oob
+![Authentication](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/images/Authentication.gif)
 
-[ ] msal<client ID will be here>://auth
-[x] https://login.microsoftonline.com/common/oauth2/nativeclient
-[x] https://login.live.com/oauth20_desktop.srf
+Then modify API permissions to look like so (don't foget to grant admin consent)
 
-4) Click "Save"
+![API permissions](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/images/api-permissions.gif)
+
 
 Now you have an "Application (client) ID" value, update the app.config:
 
  <add key="clientId" value="" /> 
 
 with your value.
-
-NOTE: If you copy the token to use on "https://custom-api.cognitive.microsofttranslator.com/swagger/" make sure you add "Bearer " before the token (i.e., Bearer <token value>), like so:
-
-authorization:  Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI***********REoc7_NP4lLZ3xohthp5fyg
