@@ -63,7 +63,7 @@ namespace CT.AccessToken.Client
         public static string ClientId { get; set; }
         public static string WorkspaceId { get; set; }
         public static string TenantId { get; set; }
-        public static List<string> Scopes { get; set; } = new List<string>() { "email" };
+        public static List<string> Scopes { get; set; } = new List<string>() { "api://72876cf4-6a8f-4e0f-b161-b34c56f0b509/access_as_user" };
         private static RestClient restClient { get; set; }
 
 
