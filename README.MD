@@ -23,15 +23,15 @@ To use this solution to generate access token, you need to register an applicati
 3) Click "Authentication" blade and configure "Public client/native (mobile & desktop)" by clicking on the drop down
 arrow. Your configuration should look like this:
 
-![Authentication](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/images/Authentication.gif)
+![Authentication](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/blob/master/images/authentication.gif)
 
 Then modify API permissions to look like so (don't foget to grant admin consent)
 
-![API permissions](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/images/api-permissions.gif)
+![API permissions](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp/blob/master/images/api-permissions.gif)
 
 
 Now you have an "Application (client) ID" value, update the app.config:
 
- <add key="clientId" value="" /> 
+ \<add key="clientId" value="add client ID" /> 
 
 with your value.
