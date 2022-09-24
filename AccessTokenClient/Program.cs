@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //
 // Copyright (c) Microsoft Corporation.
 // All rights reserved.
@@ -62,25 +62,25 @@ namespace CT.AccessToken.Client
             scopes = AccessTokenClient.Scopes;
 
             application = new PublicClientApplication(clientId, authorityUri, CachePersistence.GetUserCache());            
-            string idToken = null;
+            string accessToken = null;
             try
             {
-                idToken = AcquireTokenSilent();
+                accessToken = AcquireTokenSilent();
             }
             catch
             {
-                idToken = AcquireTokenWithSignIn();
+                accessToken = AcquireTokenWithSignIn();
             }
 
             Console.WriteLine("Id token Acquired Successfully. Use http://jwt.ms/ to inspect the token.");            
             Console.WriteLine("Token:");
-            Console.WriteLine(idToken);
+            Console.WriteLine(accessToken);
             Console.WriteLine();
 
             // Get the categories from the Custom Translator api. This just tests that we have a valid auth token.
             Console.WriteLine("Calling Custom Translator categories API to verify auth...");
             restClient = new RestClient(apiEndpoint);
-            GetCategories(idToken);
+            GetCategories(accessToken);
 
             Console.WriteLine();
             Console.WriteLine($"Press any key to exit.");
@@ -95,7 +95,7 @@ namespace CT.AccessToken.Client
         {
             var accounts = application.GetAccountsAsync().Result;
             var result = application.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault()).Result;
-            return result.IdToken;            
+            return result.AccessToken;            
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace CT.AccessToken.Client
         {            
             AuthenticationResult result = application.AcquireTokenAsync(scopes).Result;
             
-            return result.IdToken;           
+            return result.AccessToken;           
         }        
         
         public static void GetCategories(string token)
